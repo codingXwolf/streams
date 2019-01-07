@@ -10,7 +10,7 @@ export default (state = INITIAL_STATE, action) => {
         case SIGN_IN:
             return { ...state, isSignedIn: true, userId: action.payload };
         case SIGN_OUT:
-            return { ...state, isSignedIn: false, payload: null }; //when the user signs out. payload value goes back to null.
+            return { ...state, isSignedIn: false, userId: null }; //when the user signs out. payload value goes back to null.
         default:
             return state;
     }
