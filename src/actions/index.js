@@ -25,11 +25,13 @@ export const signOut = () => {
 //REST CRUD 
 
 //POST | Create - record | Route - /streams | single record
-
-export const createStream = formValues => async dispatch => { //
-    const response = await streams.post('./streams', formValues);
+export const createStream = formValues => async (dispatch, getState) => {//getState is going to get entire state
+    const { userId } = getState().auth; //google user Id from our store 
+    const response = await streams.post('./streams', { ...formValues, userId });
     
     dispatch({ type: CREATE_STREAM, payload: response.data });
+    //Do some programmatic navigation to 
+    // get the user back to the root route
 };
 
 //GET | GET ALL - List | Route - /streams | list of records

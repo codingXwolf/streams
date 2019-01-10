@@ -6,12 +6,12 @@ import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import Header from './Header';
-
+import history from '../history';
 
 const App = () => {
     return (
         <div className="ui container">
-            <BrowserRouter>
+            <BrowserRouter history={history}>
             <div>
                 <Header />
                 {/* <Route path="/" exact component={PageOne}/> you can duplicate path and itll render on DOM(display onto page) */}
