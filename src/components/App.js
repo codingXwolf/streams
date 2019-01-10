@@ -17,7 +17,8 @@ const App = () => {
                 {/* <Route path="/" exact component={PageOne}/> you can duplicate path and itll render on DOM(display onto page) */}
                 <Route path="/" exact component={StreamList}/> {/*  exact propoerty equals true. */}
                 <Route path="/streams/new" exact component={StreamCreate}/>
-                <Route path="/streams/edit" exact component={StreamEdit}/>
+                <Route path="/streams/edit/:id" exact component={StreamEdit}/>
+                {/* the Colon is the key. : turn it into a variable of sort */}
                 <Route path="/streams/delete" exact component={StreamDelete}/>
                 <Route path="/streams/show" exact component={StreamShow}/>
             </div>
