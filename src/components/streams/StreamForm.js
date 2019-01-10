@@ -27,7 +27,8 @@ class StreamForm extends React.Component {
         )
     }
 
-    onEdit = formValues => {
+    onSubmit = formValues => {
+    //e.preventDefault() no need because of redux form/handleSubmit. No Event object at all.
         console.log(formValues)
         this.props.onSubmit(formValues)
     }
@@ -57,9 +58,9 @@ const validate = formValues => {
     return errors
 };
 
+//reminder that reduxForm wrappped around StreamForm
+//passing props to redux form not streaform.
 export default reduxForm({
     form: 'streamForm',
     validate
 })(StreamForm);
-
-export default (formWrapped);

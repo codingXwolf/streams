@@ -52,9 +52,13 @@ export const fetchStream = id => async dispatch => {
 
 //UPDATE | PUT - single record | Route - /streams/:id | edit single record
 export const editStream = (id, formValues) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`, formValues);
+    //changed from PUT to PATCH.
+    //PATCH is only changes the title and description without changing id and userId
+    //PUT is modifying the resquest object to only show title and description.
+    const response = await streams.patch(`/streams/${id}`, formValues);
 
     dispatch({ type: EDIT_STREAM, payload: response.data });
+    history.push('/');
 };
 
 //DELETE | DELETE - single record | Route - /streams/:id | delete single record
